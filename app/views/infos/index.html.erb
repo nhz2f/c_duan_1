@@ -1,0 +1,16 @@
+<table>
+  <tr>
+    <th>title</th>
+    <th>describe</th>
+    <th>displayurl</th>
+    <th>url</th>
+  </tr>
+<%@data.each do |_, v|%>
+<tr>
+  <td><%= v['title']%></td>
+  <td><%= v['des']%></td>
+  <td><%= v['displayurl']%></td>
+  <td><%= v['url']%></td>
+</tr>
+<% end %>
+</table>
