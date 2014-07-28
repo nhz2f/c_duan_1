@@ -5,12 +5,20 @@ include REXML
 
 class InfosController < ApplicationController
   def index
-    @data = d('www.baidu.com', '52cb4735-5778-4c8f-9e90-ed2e05120cbd', 'FuX1qN/fBlt2YRvsNWB+Ccz+5lAEoDkA7lRU+bgQryk')
+    @data = d(getQuery['query'], '52cb4735-5778-4c8f-9e90-ed2e05120cbd', 'FuX1qN/fBlt2YRvsNWB+Ccz+5lAEoDkA7lRU+bgQryk')
+  end
+
+  def search
+
   end
 
 private
   def d(query, userId, passwd)
     C_duan.new(query, userId, passwd).get_data
+  end
+
+  def getQuery
+    params.permit(:query)
   end
 end
 

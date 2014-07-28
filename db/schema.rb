@@ -14,6 +14,7 @@
 ActiveRecord::Schema.define(version: 20140725045010) do
 
   create_table "infos", force: true do |t|
+    t.string   "query"
     t.string   "title"
     t.string   "description"
     t.string   "displayurl"
