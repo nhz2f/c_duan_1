@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140725045010) do
+ActiveRecord::Schema.define(version: 20140728075857) do
+
+  create_table "bingidpws", force: true do |t|
+    t.string   "cid"
+    t.string   "password"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "infos", force: true do |t|
     t.string   "query"

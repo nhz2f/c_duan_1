@@ -5,11 +5,11 @@ include REXML
 
 class InfosController < ApplicationController
   def index
-    @data = d(getQuery['query'], '52cb4735-5778-4c8f-9e90-ed2e05120cbd', 'FuX1qN/fBlt2YRvsNWB+Ccz+5lAEoDkA7lRU+bgQryk')
+    @data = d(getQuery['query'], getBingidpw.cid, getBingidpw.password)
+    #@data = d(getQuery['query'], '52cb4735-5778-4c8f-9e90-ed2e05120cbd', 'FuX1qN/fBlt2YRvsNWB+Ccz+5lAEoDkA7lRU+bgQryk')
   end
 
   def search
-
   end
 
 private
@@ -20,14 +20,18 @@ private
   def getQuery
     params.permit(:query)
   end
+
+  def getBingidpw
+    Bingidpw.first
+  end
 end
 
 class C_duan
   def  initialize(query, userId, passwd)
     @uri = "/Bing/SearchWeb/v1/Web?Query=%27#{query}%27"
     @url = 'api.datamarket.azure.com'
-    @userId = userId#'52cb4735-5778-4c8f-9e90-ed2e05120cbd'
-    @passwd = passwd#'FuX1qN/fBlt2YRvsNWB+Ccz+5lAEoDkA7lRU+bgQryk'
+    @userId = userId
+    @passwd = passwd
   end
 
   def get_data
